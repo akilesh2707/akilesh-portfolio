@@ -1,0 +1,6 @@
+node_modules/
+.next/
+.vercel/
+pnpm-lock.yaml
+docs/
+MASTER_PORTFOLIO_SPEC.md

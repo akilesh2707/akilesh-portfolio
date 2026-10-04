@@ -1,0 +1,14 @@
+node_modules/
+.next/
+.vercel/
+out/
+*.tsbuildinfo
+.env*
+!.env.example
+.DS_Store
+docs/*.pdf
+docs/*.PDF
+qa/*.jpg
+qa/*.png
+qa/*.json
+.pnpm-store/
