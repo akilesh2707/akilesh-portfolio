@@ -1,0 +1,1386 @@
+/* Product previews only. The portfolio's original identity and other sections are unchanged. */
+.product-gallery-heading {
+  padding-bottom: 12px;
+}
+.product-gallery-heading h3 {
+  margin-top: 10px;
+}
+.product-gallery-heading .project-description {
+  min-height: 0;
+}
+.product-gallery-footer {
+  padding-top: 16px;
+}
+.product-gallery-footer .project-meta {
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.product-gallery-footer .project-meta > .mono {
+  font-size: 10px;
+}
+.product-research .project-experience {
+  margin: 22px 0;
+}
+.product-client {
+  align-self: start;
+}
+.product-exploration .project-experience {
+  margin: 20px -8px;
+}
+.product-exploration .wardrobe-stripe {
+  display: none;
+}
+.project-experience {
+  --farm-earth: #c8cfb1;
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--ink);
+  padding: 22px;
+  border-block: 1px solid var(--line);
+  font-family: var(--font-sans);
+}
+[data-theme='dark'] .project-experience {
+  --farm-earth: #2c3930;
+}
+.project-experience button {
+  cursor: pointer;
+  font: 500 12px var(--font-sans);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  min-height: 40px;
+  padding: 8px 12px;
+  background: var(--raised);
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+  border-radius: 3px;
+}
+.project-experience button:hover:not(:disabled),
+.project-experience button[aria-pressed='true'] {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 9%, var(--raised));
+}
+.project-experience button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.project-experience button:focus-visible,
+.project-experience input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.demo-heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+.demo-heading strong {
+  font: 600 20px/1.2 var(--font-display);
+  letter-spacing: -0.025em;
+}
+.demo-heading > span,
+.demo-label {
+  font: 9px/1.6 var(--font-mono);
+  color: var(--muted);
+}
+.demo-heading > span {
+  text-align: right;
+  max-width: 110px;
+}
+.demo-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.demo-controls > span {
+  font-size: 11px;
+  color: var(--muted);
+  flex: 1;
+  min-width: 120px;
+}
+.project-experience .demo-primary {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+.project-experience .demo-primary:hover {
+  background: var(--accent);
+  filter: brightness(1.08);
+}
+.demo-context {
+  border-left: 2px solid var(--accent);
+  padding: 9px 12px;
+  margin-top: 16px;
+  background: color-mix(in srgb, var(--accent) 4%, transparent);
+}
+.demo-context strong {
+  display: block;
+  font-size: 12px;
+}
+.demo-context p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 5px 0 0;
+}
+.demo-note {
+  margin-top: 18px;
+  font-size: 10px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.demo-note > span {
+  color: var(--amber);
+  font: 8px var(--font-mono);
+  margin-right: 5px;
+}
+.experience-loading {
+  min-height: 350px;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+}
+/* SentinelX: an assessment, rather than an architecture symbol. */
+.assessment-product {
+  display: grid;
+  grid-template-columns: 1fr 160px;
+  border: 1px solid var(--line);
+  background: var(--raised);
+}
+.assessment-question {
+  padding: 20px;
+}
+.assessment-question h4 {
+  font: 500 20px/1.35 var(--font-display);
+  margin: 12px 0;
+}
+.assessment-answers {
+  display: grid;
+  gap: 7px;
+}
+.assessment-answers button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+}
+.assessment-answers i {
+  color: var(--accent);
+  font-style: normal;
+}
+.assessment-question p {
+  font-size: 10px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-top: 12px;
+}
+.assessment-monitor {
+  border-left: 1px solid var(--line);
+  padding: 14px;
+  align-self: stretch;
+}
+.candidate-frame {
+  position: relative;
+  background: var(--diagram);
+  color: var(--diagram-ink);
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.candidate-frame svg {
+  width: 100%;
+  height: 160px;
+  fill: var(--diagram-ink);
+  fill-opacity: 0.15;
+}
+.candidate-frame .face-corners {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  opacity: 0.35;
+}
+.session-active .face-corners {
+  opacity: 1;
+}
+.candidate-frame > span {
+  display: block;
+  font: 7px var(--font-mono);
+  padding: 8px 4px;
+  text-align: center;
+}
+.camera-sweep {
+  position: absolute;
+  inset: 15% 10% auto;
+  height: 1px;
+  background: var(--accent);
+  animation: camera-scan 4s ease-in-out infinite alternate;
+}
+@keyframes camera-scan {
+  to {
+    transform: translateY(120px);
+  }
+}
+.assessment-monitor p {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 12px;
+  line-height: 1.6;
+}
+.assessment-monitor .monitor-state {
+  color: var(--accent);
+}
+.assessment-events {
+  display: flex;
+  gap: 6px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.assessment-events button {
+  font-size: 10px;
+}
+/* ScamCheck: a progressively assembled evidence tree. */
+.evidence-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.evidence-inputs button {
+  font-size: 11px;
+  padding-inline: 10px;
+}
+.investigation-board {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 20px;
+  padding: 12px 0;
+}
+.investigation-target {
+  position: relative;
+  padding: 22px 18px;
+  border: 1px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 4%, var(--raised));
+}
+.investigation-target:after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  width: 21px;
+  height: 1px;
+  background: var(--accent);
+}
+.investigation-target strong {
+  display: block;
+  font: 600 22px var(--font-display);
+  margin: 14px 0 8px;
+}
+.investigation-target p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.evidence-tree {
+  display: grid;
+  gap: 8px;
+  border-left: 1px solid var(--line);
+  padding-left: 16px;
+}
+.project-experience .evidence-tree button {
+  position: relative;
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  text-align: left;
+  gap: 0 5px;
+  background: transparent;
+}
+.evidence-tree button:before {
+  content: '';
+  position: absolute;
+  right: 100%;
+  width: 17px;
+  height: 1px;
+  top: 50%;
+  background: var(--line);
+}
+.evidence-node {
+  grid-row: span 2;
+  align-self: center;
+  color: var(--accent);
+}
+.evidence-tree small {
+  font: 9px var(--font-mono);
+  color: var(--muted);
+  margin-top: 5px;
+}
+.evidence-found {
+  animation: evidence-arrive 0.3s ease both;
+}
+@keyframes evidence-arrive {
+  from {
+    opacity: 0.3;
+    transform: translateX(-6px);
+  }
+}
+.risk-assembly {
+  margin-top: 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+.risk-assembly span {
+  font-size: 10px;
+  color: var(--muted);
+}
+.risk-assembly strong {
+  display: block;
+  font: 500 18px var(--font-display);
+  margin-top: 5px;
+}
+.risk-assembly.assembled strong {
+  color: var(--amber);
+}
+/* INFRAguard: an inspection camera looking at a synthetic surface. */
+.inspection-viewport {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.inspection-viewport svg {
+  display: block;
+  width: 100%;
+}
+.inspection-sweep {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 18px var(--accent);
+  animation: inspection-camera 5s linear infinite;
+}
+@keyframes inspection-camera {
+  to {
+    left: 100%;
+  }
+}
+.inspection-viewport[data-stage='4'] .inspection-sweep {
+  display: none;
+}
+.inspection-frame-label {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  background: #101314;
+  color: #f4f1ea;
+  padding: 5px 8px;
+  font: 8px var(--font-mono);
+}
+.defect-mark {
+  animation: defect-arrive 0.3s ease;
+}
+@keyframes defect-arrive {
+  from {
+    opacity: 0;
+  }
+}
+.inspection-stages {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 5px;
+  margin-top: 12px;
+}
+.inspection-stages button {
+  padding: 7px 3px;
+  font-size: 10px;
+}
+.inspection-stages span {
+  display: block;
+  color: var(--muted);
+  font: 8px var(--font-mono);
+  margin-bottom: 5px;
+}
+/* FARMIGLE: an orchard map with evidence overlays, all in two dimensions. */
+.farm-map {
+  background: color-mix(in srgb, var(--farm-earth) 35%, var(--bg));
+  border: 1px solid var(--line);
+}
+.farm-map svg {
+  display: block;
+  width: 100%;
+  max-height: 330px;
+}
+.farm-zone {
+  color: #405c44;
+}
+[data-theme='dark'] .farm-zone {
+  color: #b3c29a;
+}
+.farm-zone > path:first-child {
+  fill: color-mix(in srgb, #8a9d69 40%, var(--bg));
+  stroke: var(--bg);
+  stroke-width: 2;
+}
+.farm-zone[data-state='NEAR_READY'] > path:first-child {
+  fill: color-mix(in srgb, var(--amber) 25%, var(--bg));
+}
+.farm-zone[data-state='NOT_READY'] > path:first-child {
+  fill: color-mix(in srgb, #6f8873 22%, var(--bg));
+}
+.farm-zone.zone-selected > path:first-child {
+  stroke: var(--accent);
+  stroke-width: 3;
+}
+.farm-zone .orchard-trees {
+  stroke: none;
+}
+.farm-zone text {
+  fill: var(--ink);
+  font: 600 15px var(--font-display);
+}
+.farm-zone .zone-readiness {
+  font: 11px var(--font-sans);
+}
+.drone-trace {
+  animation: drone-trace 10s linear infinite;
+}
+@keyframes drone-trace {
+  to {
+    stroke-dashoffset: -120;
+  }
+}
+.drone-marker {
+  animation: drone-hover 3s ease-in-out infinite alternate;
+}
+@keyframes drone-hover {
+  to {
+    transform: translateX(9px);
+  }
+}
+.farm-context-text {
+  fill: var(--ink);
+  font: 9px var(--font-mono);
+}
+.farm-zone-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 12px 0;
+}
+.farm-zone-controls button {
+  text-align: left;
+}
+.farm-zone-controls strong {
+  display: block;
+  font-size: 12px;
+}
+.farm-zone-controls span {
+  display: block;
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.farm-evidence {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  display: grid;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--muted);
+}
+/* OncoTwin: synthetic medical slices and a longitudinal timeline. */
+.medical-viewport {
+  position: relative;
+  min-height: 270px;
+  background: #10191c;
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.medical-viewport svg {
+  position: relative;
+  width: 100%;
+  height: 270px;
+  z-index: 2;
+  transition: transform 0.4s;
+}
+.medical-viewport > span {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  z-index: 3;
+  color: #c9d0cf;
+  font: 7px var(--font-mono);
+}
+.scan-layer {
+  position: absolute;
+  width: 220px;
+  height: 185px;
+  border-radius: 50%;
+  border: 1px solid #69787d;
+  background: #19272c;
+  opacity: 0;
+  transition:
+    transform 0.4s,
+    opacity 0.4s;
+}
+.layered-scan .scan-layer-back {
+  opacity: 0.6;
+  transform: translate(30px, -21px);
+}
+.layered-scan .scan-layer-middle {
+  opacity: 0.8;
+  transform: translate(15px, -10px);
+}
+.layered-scan svg {
+  transform: translate(-16px, 15px) scale(0.9);
+}
+.scan-timeline {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 16px 0 0;
+}
+.scan-timeline button {
+  border: 0;
+  background: transparent;
+  padding: 0 4px 8px;
+}
+.scan-timeline i {
+  display: block;
+  height: 1px;
+  background: var(--line);
+  margin: 8px 0 17px;
+  position: relative;
+}
+.scan-timeline i:after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+.scan-timeline [aria-pressed='true'] i:after {
+  background: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 12%, transparent);
+}
+.scan-timeline strong {
+  display: block;
+  font-size: 11px;
+}
+.scan-timeline span {
+  display: block;
+  font-size: 9px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.scan-progression {
+  display: grid;
+  grid-template-columns: 1fr 85px;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  margin-top: 16px;
+  padding-top: 12px;
+  gap: 8px;
+}
+.scan-progression > span {
+  font-size: 11px;
+}
+.scan-progression > div {
+  display: flex;
+  align-items: end;
+  gap: 7px;
+  height: 40px;
+}
+.scan-progression i {
+  width: 14px;
+  background: var(--line);
+}
+.scan-progression i.chosen {
+  background: var(--accent);
+}
+.scan-progression p {
+  grid-column: span 2;
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+/* ChipX: native, keyboard-accessible before / after reveal. */
+.restoration-comparison {
+  position: relative;
+  overflow: hidden;
+}
+.restoration-comparison svg {
+  width: 100%;
+  display: block;
+}
+.comparison-before,
+.comparison-after {
+  position: absolute;
+  top: 12px;
+  font: 8px var(--font-mono);
+  color: #f4f1ea;
+  background: #101314;
+  padding: 7px;
+}
+.comparison-before {
+  left: 8px;
+}
+.comparison-after {
+  right: 8px;
+}
+.comparison-handle {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 40px;
+  background: var(--accent);
+  color: var(--bg);
+  font-style: normal;
+  pointer-events: none;
+  border-radius: 2px;
+}
+.comparison-control {
+  display: grid;
+  gap: 12px;
+  margin: 17px 0;
+  font-size: 12px;
+}
+.comparison-control input {
+  width: 100%;
+  min-height: 32px;
+  accent-color: var(--accent);
+  cursor: ew-resize;
+}
+.restoration-pipeline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  font: 9px/1.6 var(--font-mono);
+  color: var(--muted);
+}
+.restoration-pipeline i {
+  font-style: normal;
+}
+.restoration-pipeline .pipeline-lit {
+  color: var(--accent);
+}
+/* 3 Sports Academy: a production registration handoff, not an AI interface. */
+.registration-record {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid var(--line);
+  background: var(--raised);
+}
+.record-mark {
+  font: 600 45px/1 var(--font-display);
+  color: var(--accent);
+}
+.record-mark span {
+  display: block;
+  font: 6px var(--font-mono);
+  margin-top: 5px;
+}
+.registration-record strong {
+  display: block;
+  font-size: 17px;
+  margin-top: 4px;
+}
+.registration-record p {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.record-state {
+  margin-left: auto;
+  font: 9px var(--font-mono);
+  color: var(--accent);
+}
+.registration-flow {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 20px;
+  margin: 20px 0;
+  padding: 0;
+}
+.registration-flow li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  position: relative;
+  border-bottom: 1px solid var(--line);
+}
+.registration-flow li > i {
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font: 9px var(--font-mono);
+  flex-shrink: 0;
+}
+.registration-flow strong {
+  font-size: 12px;
+}
+.registration-flow li div > span {
+  display: block;
+  font-size: 9px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+.registration-flow [data-state='current'] {
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+  border-color: var(--accent);
+}
+.registration-flow [data-state='current'] > i,
+.registration-flow [data-state='complete'] > i {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.moving-record {
+  position: absolute;
+  right: 5px;
+  color: var(--accent);
+  animation: record-hop 1s ease-in-out infinite alternate;
+}
+@keyframes record-hop {
+  to {
+    transform: translateX(5px);
+  }
+}
+/* StyleSense: an editorial outfit composition, independent from every other preview. */
+.outfit-composer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 110px;
+  gap: 14px;
+}
+.outfit-canvas {
+  background: color-mix(in srgb, var(--amber) 5%, var(--raised));
+  position: relative;
+}
+.outfit-canvas > span {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font: 7px var(--font-mono);
+  color: var(--muted);
+}
+.outfit-canvas svg {
+  display: block;
+  width: 100%;
+  height: 290px;
+  padding-top: 16px;
+}
+.wardrobe-controls {
+  display: grid;
+  align-content: center;
+  gap: 14px;
+}
+.wardrobe-controls > div > span {
+  display: block;
+  font: 9px var(--font-mono);
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+.wardrobe-controls button {
+  display: block;
+  width: 100%;
+  margin: 4px 0;
+  font-size: 10px;
+  min-height: 34px;
+  padding: 6px;
+}
+.wardrobe-controls .outfit-colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+.outfit-colors > span {
+  width: 100%;
+}
+.wardrobe-controls .outfit-colors button {
+  width: 29px;
+  height: 31px;
+  min-height: 31px;
+  padding: 0;
+  color: white;
+  border: 2px solid transparent;
+}
+.wardrobe-controls .outfit-colors button[aria-pressed='true'] {
+  border-color: var(--ink);
+  outline: 1px solid var(--bg);
+  outline-offset: -4px;
+}
+.outfit-recommendation {
+  margin-top: 16px;
+}
+.outfit-recommendation > span {
+  color: var(--muted);
+  font: 8px var(--font-mono);
+}
+.outfit-recommendation strong {
+  display: block;
+  font: 500 20px/1.2 var(--font-display);
+  margin-top: 8px;
+}
+.outfit-recommendation p {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+/* QueueZero is the only spatial scene. CSS planes form actual room floors, walls and desks. */
+.hospital-toolbar {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  font: 8px var(--font-mono);
+  color: var(--muted);
+}
+.hospital-toolbar strong {
+  font-size: 13px;
+  color: var(--ink);
+  margin-left: 5px;
+}
+.hospital-orbit {
+  position: relative;
+  height: 320px;
+  perspective: 900px;
+  overflow: hidden;
+  touch-action: pan-y;
+  cursor: grab;
+  background: radial-gradient(
+    ellipse at 50% 60%,
+    color-mix(in srgb, var(--accent) 7%, transparent),
+    transparent 65%
+  );
+}
+.hospital-orbit:active {
+  cursor: grabbing;
+}
+.hospital-world {
+  position: absolute;
+  width: 500px;
+  height: 350px;
+  left: 50%;
+  top: 0;
+  margin-left: -250px;
+  transform: rotateX(52deg) rotateZ(var(--orbit-angle)) scale(0.87);
+  transform-style: preserve-3d;
+}
+.hospital-floor {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--accent) 4%, var(--raised));
+  border: 1px solid var(--line);
+  transform: translateZ(-2px);
+  box-shadow: 10px 18px 0 color-mix(in srgb, var(--ink) 5%, transparent);
+}
+.hospital-floor-title {
+  position: absolute;
+  bottom: 12px;
+  left: 20px;
+  font: 9px var(--font-mono);
+  color: var(--muted);
+}
+.hospital-flow {
+  position: absolute;
+  inset: 0;
+  width: 500px;
+  height: 350px;
+  transform: translateZ(1px);
+}
+.hospital-flow path {
+  opacity: 0.3;
+}
+.hospital-flow path.selected-flow {
+  opacity: 1;
+  stroke-width: 3;
+}
+.project-experience .hospital-room {
+  position: absolute;
+  width: 92px;
+  height: 70px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  transform-style: preserve-3d;
+  border-radius: 0;
+}
+.project-experience .hospital-room:hover,
+.project-experience .hospital-room[aria-pressed='true'] {
+  background: transparent;
+}
+.room-floor {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, var(--raised));
+  padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.room-floor strong {
+  font: 600 22px var(--font-display);
+  color: var(--accent);
+}
+.room-floor small {
+  font: 9px var(--font-sans);
+}
+.room-floor > i {
+  font: 6px var(--font-mono);
+  color: var(--muted);
+  margin-top: 4px;
+}
+.room-wall {
+  position: absolute;
+  background: color-mix(in srgb, var(--accent) 20%, var(--raised));
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--line));
+}
+.room-wall-back {
+  width: 92px;
+  height: 28px;
+  top: 0;
+  left: 0;
+  transform: rotateX(90deg);
+  transform-origin: top;
+}
+.room-wall-left {
+  width: 28px;
+  height: 70px;
+  left: 0;
+  top: 0;
+  transform: rotateY(-90deg);
+  transform-origin: left;
+}
+.room-desk {
+  position: absolute;
+  width: 28px;
+  height: 14px;
+  right: 9px;
+  top: 13px;
+  background: var(--accent);
+  transform: translateZ(12px);
+  transform-style: preserve-3d;
+}
+.room-desk:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 28px;
+  height: 12px;
+  background: color-mix(in srgb, var(--accent) 70%, var(--ink));
+  transform: rotateX(-90deg);
+  transform-origin: top;
+}
+.room-selected .room-floor {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.room-congested .room-floor {
+  border-color: var(--amber);
+  background: color-mix(in srgb, var(--amber) 15%, var(--raised));
+}
+.room-congested .room-floor > i {
+  color: var(--amber);
+}
+.hospital-patient {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 7px;
+  height: 17px;
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  transform-style: preserve-3d;
+  pointer-events: none;
+  transition: transform 0.65s linear;
+}
+.hospital-patient i {
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+.hospital-patient span {
+  display: block;
+  width: 5px;
+  height: 10px;
+  background: var(--muted);
+  margin: 1px auto;
+  border-radius: 2px 2px 0 0;
+}
+.patient-highlight i,
+.patient-highlight span {
+  background: var(--accent);
+}
+.hospital-stations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 12px;
+}
+.hospital-stations button {
+  font-size: 10px;
+  padding-inline: 8px;
+}
+/* Pause every continuous CSS animation when outside the viewport or when hidden. */
+.project-experience * {
+  animation-play-state: paused;
+}
+.project-experience[data-active='true'] * {
+  animation-play-state: running;
+}
+@media (max-width: 1100px) {
+  .hospital-world {
+    transform: rotateX(52deg) rotateZ(var(--orbit-angle)) scale(0.72);
+  }
+  .assessment-product {
+    grid-template-columns: minmax(0, 1fr) 130px;
+  }
+  .assessment-question {
+    padding: 14px;
+  }
+  .assessment-monitor {
+    padding: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .project-experience {
+    padding: 16px;
+  }
+  .demo-heading strong {
+    font-size: 18px;
+  }
+  .demo-heading > span {
+    font-size: 7px;
+    max-width: 85px;
+  }
+  .product-gallery-footer .gallery-bottom {
+    align-items: start;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .assessment-product {
+    grid-template-columns: minmax(0, 1fr) 104px;
+  }
+  .assessment-question {
+    padding: 12px;
+  }
+  .assessment-question h4 {
+    font-size: 15px;
+  }
+  .assessment-monitor {
+    padding: 8px;
+  }
+  .candidate-frame svg {
+    height: 110px;
+  }
+  .candidate-frame > span {
+    font-size: 6px;
+  }
+  .assessment-question .demo-label {
+    font-size: 7px;
+  }
+  .assessment-monitor p {
+    font-size: 8px;
+  }
+  .hospital-orbit {
+    height: 255px;
+  }
+  .hospital-world {
+    top: -35px;
+    transform: rotateX(47deg) rotateZ(var(--orbit-angle)) scale(0.55);
+  }
+  .hospital-toolbar {
+    font-size: 7px;
+  }
+  .hospital-stations button {
+    min-height: 40px;
+  }
+  .investigation-board {
+    gap: 12px;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  }
+  .investigation-target {
+    padding: 14px 10px;
+  }
+  .investigation-target:after {
+    width: 13px;
+  }
+  .investigation-target strong {
+    font-size: 19px;
+  }
+  .investigation-target p {
+    font-size: 10px;
+  }
+  .evidence-tree {
+    padding-left: 10px;
+  }
+  .evidence-tree button:before {
+    width: 11px;
+  }
+  .project-experience .evidence-tree button {
+    padding: 8px 6px;
+    font-size: 11px;
+  }
+  .evidence-tree small {
+    font-size: 8px;
+  }
+  .farm-zone-controls {
+    gap: 5px;
+  }
+  .farm-zone-controls button {
+    padding: 8px;
+  }
+  .registration-flow {
+    gap: 6px;
+  }
+  .registration-flow li {
+    padding: 8px 4px;
+    gap: 6px;
+  }
+  .registration-flow strong {
+    font-size: 11px;
+  }
+  .registration-record {
+    padding: 12px;
+    gap: 10px;
+  }
+  .record-state {
+    font-size: 7px;
+  }
+  .outfit-composer {
+    grid-template-columns: minmax(0, 1fr) 100px;
+  }
+  .project-experience button {
+    min-height: 42px;
+  }
+  .wardrobe-controls button {
+    min-height: 36px;
+  }
+  .inspection-stages button {
+    font-size: 9px;
+    padding-inline: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-experience * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+html[data-motion='reduce'] .project-experience * {
+  animation: none !important;
+  transition: none !important;
+}
+
+.project-experience button.demo-primary:hover:not(:disabled) {
+  background: var(--accent);
+  color: var(--bg);
+}
+.evidence-tree button[data-related='true'] {
+  border-left: 2px solid var(--accent);
+}
+.evidence-tree button[data-related='true']:before {
+  background: var(--accent);
+}
+.medical-viewport {
+  --scan-accent: #a4bcff;
+}
+.farm-zone {
+  cursor: pointer;
+}
+.farm-zone:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.farm-map svg > g:not(.farm-zone) {
+  pointer-events: none;
+}
+
+.outfit-canvas {
+  display: grid;
+  place-items: center;
+}
+@media (max-width: 600px) {
+  .wardrobe-controls button {
+    min-height: 42px;
+  }
+  .wardrobe-controls .outfit-colors button {
+    width: 42px;
+    height: 42px;
+    min-height: 42px;
+  }
+}
+/* A miniature registration slip travels with the active handoff. */
+.registration-flow [data-state='current'] > i {
+  color: transparent;
+  border-color: transparent;
+}
+.registration-flow .moving-record {
+  left: 13px;
+  top: 15px;
+  right: auto;
+  width: 18px;
+  height: 24px;
+  border: 1px solid var(--accent);
+  background: var(--raised);
+  border-radius: 2px;
+  font-size: 0;
+  animation: registration-slip 0.35s ease both;
+}
+.registration-flow .moving-record:before,
+.registration-flow .moving-record:after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  height: 1px;
+  background: var(--accent);
+  top: 6px;
+}
+.registration-flow .moving-record:after {
+  top: 12px;
+  right: 6px;
+}
+@keyframes registration-slip {
+  from {
+    transform: translateY(-9px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.project-experience[data-active='false'] .moving-record {
+  animation-play-state: paused;
+}
+
+/* The shared QueueZero simulation gets a larger stage only on its case study. */
+.queuezero-showcase-intro {
+  max-width: 720px;
+  margin-bottom: 28px;
+}
+.queuezero-showcase-intro h2 {
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.queuezero-showcase-intro p {
+  color: var(--muted);
+  font-size: 16px;
+}
+.queuezero-case-visual .experience-hospital {
+  padding: 28px;
+}
+.queuezero-case-visual .hospital-toolbar {
+  font-size: 10px;
+}
+.hospital-orbit[data-mode='case-study'] {
+  height: clamp(600px, 48vw, 700px);
+  perspective: 1400px;
+}
+.hospital-orbit[data-mode='case-study'] .hospital-world {
+  top: calc(50% - 175px);
+  transform: rotateX(52deg) rotateZ(var(--orbit-angle)) scale(1.6);
+}
+.queuezero-case-visual .demo-controls {
+  gap: 10px;
+}
+.queuezero-case-visual .demo-controls button,
+.queuezero-case-visual .hospital-stations button {
+  min-height: 44px;
+  min-width: 44px;
+  padding-inline: 16px;
+  font-size: 12px;
+}
+.queuezero-case-visual .hospital-stations {
+  gap: 8px;
+  margin-top: 16px;
+}
+.queuezero-case-visual .demo-context {
+  max-width: 78ch;
+  margin-top: 24px;
+  font-size: 13px;
+}
+.queuezero-case-visual .hospital-next-stage {
+  margin-top: 8px;
+  min-height: 3lh;
+}
+.queuezero-case-visual .demo-note {
+  max-width: 100ch;
+  font-size: 11px;
+}
+.queuezero-decision-loop {
+  margin-top: 36px;
+}
+.queuezero-decision-loop h3 {
+  font-size: 23px;
+  margin-bottom: 18px;
+}
+@media (max-width: 1100px) {
+  .hospital-orbit[data-mode='case-study'] {
+    height: 600px;
+  }
+  .hospital-orbit[data-mode='case-study'] .hospital-world {
+    transform: rotateX(52deg) rotateZ(var(--orbit-angle)) scale(1.25);
+  }
+}
+@media (max-width: 900px) {
+  .hospital-orbit[data-mode='case-study'] {
+    height: 460px;
+  }
+  .hospital-orbit[data-mode='case-study'] .hospital-world {
+    transform: rotateX(52deg) rotateZ(var(--orbit-angle)) scale(0.94);
+  }
+}
+@media (max-width: 600px) {
+  .queuezero-case-visual .experience-hospital {
+    padding: 16px;
+  }
+  .queuezero-showcase-intro p {
+    font-size: 14px;
+  }
+  .queuezero-case-visual .hospital-toolbar {
+    font-size: 8px;
+  }
+  .hospital-orbit[data-mode='case-study'] {
+    height: 330px;
+  }
+  .hospital-orbit[data-mode='case-study'] .hospital-world {
+    transform: rotateX(47deg) rotateZ(var(--orbit-angle)) scale(0.64);
+  }
+  .queuezero-case-visual .demo-controls button,
+  .queuezero-case-visual .hospital-stations button {
+    padding-inline: 12px;
+  }
+}
+@media (max-width: 480px) {
+  .hospital-orbit[data-mode='case-study'] {
+    height: 290px;
+  }
+  .hospital-orbit[data-mode='case-study'] .hospital-world {
+    transform: rotateX(47deg) rotateZ(var(--orbit-angle)) scale(0.46);
+  }
+}

@@ -3,6 +3,8 @@ import '@fontsource-variable/bricolage-grotesque';
 import '@fontsource-variable/geist';
 import '@fontsource-variable/geist-mono';
 import './globals.css';
+import './enhancements.css';
+import './project-experiences.css';
 import { Header } from '@/components/layout/header';
 import { CommandMenu } from '@/components/layout/command-menu';
 import { Experience } from '@/components/layout/experience';

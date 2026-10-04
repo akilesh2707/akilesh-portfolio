@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { profile } from '@/data/profile';
 import { Arrow } from '@/components/ui/icon';
+import { MagneticLink } from '@/components/ui/magnetic-link';
 export function Contact() {
   const [copied, setCopied] = useState(false);
   const [failed, setFailed] = useState(false);
@@ -24,9 +25,13 @@ export function Contact() {
             <br />
             worth <span>building for?</span>
           </h2>
-          <a href={`mailto:${profile.email}`} aria-label="Email Akilesh" className="contact-arrow">
+          <MagneticLink
+            href={`mailto:${profile.email}`}
+            aria-label="Email Akilesh"
+            className="contact-arrow"
+          >
             <Arrow />
-          </a>
+          </MagneticLink>
         </div>
         <div className="contact-bottom">
           <div>

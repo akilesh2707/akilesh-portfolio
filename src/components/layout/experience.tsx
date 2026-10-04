@@ -5,12 +5,23 @@ import { usePathname } from 'next/navigation';
 export function Experience() {
   const cursor = useRef<HTMLDivElement>(null);
   const progress = useRef<HTMLDivElement>(null);
+  const ambient = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   useEffect(() => {
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    const fine = matchMedia('(pointer: fine)');
+    const visibility = () => {
+      if (ambient.current) ambient.current.dataset.visible = String(!document.hidden);
+    };
+    visibility();
+    document.addEventListener('visibilitychange', visibility);
     let observer: IntersectionObserver | undefined;
     const setupReveals = () => {
       observer?.disconnect();
+      if (isReducedMotion()) {
+        cursor.current?.style.setProperty('opacity', '0');
+        ambient.current?.style.setProperty('--ambient-scroll', '0px');
+      }
       if (isReducedMotion()) {
         document.querySelectorAll('.reveal').forEach((el) => el.classList.add('in-view'));
         return;
@@ -37,6 +48,11 @@ export function Experience() {
       if (frame) return;
       frame = requestAnimationFrame(() => {
         const height = document.documentElement.scrollHeight - innerHeight;
+        ambient.current?.style.setProperty(
+          '--ambient-scroll',
+          `${isReducedMotion() ? 0 : Math.min(1, scrollY / Math.max(height, 1)) * -60}px`,
+        );
+        document.querySelector('.site-header')?.setAttribute('data-scrolled', String(scrollY > 40));
         progress.current?.style.setProperty(
           'transform',
           `scaleX(${height > 0 ? scrollY / height : 0})`,
@@ -56,7 +72,7 @@ export function Experience() {
     scroll();
     let cursorFrame = 0;
     const move = (event: PointerEvent) => {
-      if (!matchMedia('(pointer: fine)').matches || isReducedMotion()) return;
+      if (!fine.matches || isReducedMotion()) return;
       cancelAnimationFrame(cursorFrame);
       cursorFrame = requestAnimationFrame(() => {
         if (!cursor.current) return;
@@ -64,6 +80,11 @@ export function Experience() {
         cursor.current.dataset.active = String(
           Boolean((event.target as Element).closest('a,button,summary,input')),
         );
+        const target = (event.target as Element).closest<HTMLElement>('[data-cursor],a');
+        cursor.current.dataset.label =
+          target?.dataset.cursor || (target?.getAttribute('target') === '_blank' ? 'OPEN ↗' : '');
+        ambient.current?.style.setProperty('--light-x', `${event.clientX}px`);
+        ambient.current?.style.setProperty('--light-y', `${event.clientY}px`);
         cursor.current.style.opacity = '1';
       });
     };
@@ -81,6 +102,7 @@ export function Experience() {
       document.removeEventListener('pointermove', move);
       document.removeEventListener('pointerleave', leave);
       document.removeEventListener('keydown', leave);
+      document.removeEventListener('visibilitychange', visibility);
       cancelAnimationFrame(frame);
       cancelAnimationFrame(cursorFrame);
     };
@@ -90,6 +112,12 @@ export function Experience() {
       <div ref={progress} className="scroll-progress" aria-hidden="true" />
       <div className="cursor-ring" ref={cursor} aria-hidden="true" />
       <div className="grain" aria-hidden="true" />
+      <div ref={ambient} className="ambient-background" aria-hidden="true">
+        <i className="ambient-wash" />
+        <i className="ambient-orbit" />
+        <i className="ambient-grid" />
+        <i className="ambient-light" />
+      </div>
     </>
   );
 }

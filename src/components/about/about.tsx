@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import Image from 'next/image';
 import { profile } from '@/data/profile';
 import { SectionHeading } from '@/components/ui/section-heading';
+import { AboutNotes } from './about-notes';
 export function About() {
   const hasPhoto = existsSync(join(process.cwd(), 'public/images/photo.jpg'));
   return (
@@ -76,6 +77,7 @@ export function About() {
           </div>
         </div>
       </div>
+      <AboutNotes />
       <div className="community-row reveal">
         <span className="section-label">CURRENT / COMMUNITY</span>
         <div>

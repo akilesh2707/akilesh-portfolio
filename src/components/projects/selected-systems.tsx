@@ -1,8 +1,11 @@
 import Link from 'next/link';
-import { primaryProjects, projects } from '@/data/projects';
+import { projects } from '@/data/projects';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { Arrow } from '@/components/ui/icon';
-import { SystemVisual } from './system-visual';
+import { ProjectExperience } from './experiences/project-experience';
+import { ProjectGallery } from './project-gallery';
+import { TactileSurface } from '@/components/ui/tactile-surface';
+import { MagneticLink } from '@/components/ui/magnetic-link';
 export function SelectedSystems() {
   return (
     <section id="systems" className="section systems-section">
@@ -18,60 +21,7 @@ export function SelectedSystems() {
         }
         description="From assessment integrity to farm intelligence. Each system starts with a real problem and an explicit boundary."
       />
-      <div className="project-index mono">
-        <span>PROJECT / ENGINEERING FOCUS</span>
-        <span>IMPLEMENTATION LEVEL</span>
-      </div>
-      <div className="primary-projects">
-        {primaryProjects.map((p, i) => (
-          <article key={p.slug} className={`project-feature project-${p.slug} reveal`}>
-            <div className="project-visual-wrap">
-              <SystemVisual project={p} />
-            </div>
-            <div className="project-copy">
-              <div className="project-meta">
-                <span className="mono">
-                  {String(i + 1).padStart(2, '0')} / {p.eyebrow.split(' / ')[1]}
-                </span>
-                <span className="status-tag">
-                  <i />
-                  {p.status}
-                </span>
-              </div>
-              <h3>
-                <Link href={`/projects/${p.slug}`}>
-                  {p.name}
-                  <Arrow />
-                </Link>
-              </h3>
-              <p className="project-subtitle">{p.subtitle}</p>
-              <p className="project-description">{p.description}</p>
-              <div className="project-insight">
-                <span className="mono">KEY DECISION</span>
-                <p>
-                  {p.slug === 'farmigle'
-                    ? 'Preserve evidence history. Publish a new Twin only after a completed full-farm analysis.'
-                    : p.slug === 'queuezero'
-                      ? 'Quantitative tools calculate the outcome. The copilot explains it. A human approves it.'
-                      : p.slug === 'scamcheck'
-                        ? 'Credibility and suitability are different questions. Uncertainty belongs in the report.'
-                        : p.slug === 'infraguard'
-                          ? 'One shared frame pipeline, with source adapters and session-isolated findings.'
-                          : 'Separate configurable policy from detection and keep evidence connected to human review.'}
-                </p>
-              </div>
-              <div className="project-tags">
-                {p.stack.slice(0, 4).map((t) => (
-                  <span key={t}>{t}</span>
-                ))}
-              </div>
-              <Link className="case-study-link" href={`/projects/${p.slug}`}>
-                Inside the system <Arrow />
-              </Link>
-            </div>
-          </article>
-        ))}
-      </div>
+      <ProjectGallery />
     </section>
   );
 }
@@ -91,23 +41,31 @@ export function ResearchProjects() {
         {projects
           .filter((p) => p.category === 'research')
           .map((p) => (
-            <article className="research-project reveal" key={p.slug}>
-              <SystemVisual project={p} compact />
-              <div className="project-meta">
-                <span className="mono">{p.eyebrow.split(' / ')[1]}</span>
-                <span className="status-tag">{p.status}</span>
-              </div>
-              <h3>
-                <Link href={`/projects/${p.slug}`}>
-                  {p.name}
-                  <Arrow />
+            <div className="research-surface reveal product-research" key={p.slug}>
+              <article className="research-project">
+                <div className="project-meta">
+                  <span className="mono">{p.eyebrow}</span>
+                  <span className="status-tag">{p.status}</span>
+                </div>
+                <h3>
+                  <Link href={`/projects/${p.slug}`}>
+                    {p.name}
+                    <Arrow />
+                  </Link>
+                </h3>
+                <p>{p.description}</p>
+                <ProjectExperience slug={p.slug} />
+                <div className="project-tags">
+                  {p.stack.slice(0, 3).map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+                {p.stackNote && <p className="research-stack-note">{p.stackNote}</p>}
+                <Link href={`/projects/${p.slug}`} className="text-link">
+                  Explore the research <Arrow />
                 </Link>
-              </h3>
-              <p>{p.description}</p>
-              <Link href={`/projects/${p.slug}`} className="text-link">
-                Explore the research <Arrow />
-              </Link>
-            </article>
+              </article>
+            </div>
           ))}
       </div>
     </section>
@@ -138,12 +96,12 @@ export function ClientProject() {
             The engineering continued after deployment: domain configuration, CORS, service
             ownership and dependable notifications.
           </p>
-          <Link className="button button-primary" href={`/projects/${p.slug}`}>
+          <MagneticLink className="button button-primary" href={`/projects/${p.slug}`}>
             Read the engineering story <Arrow />
-          </Link>
+          </MagneticLink>
         </div>
-        <div className="reveal">
-          <SystemVisual project={p} />
+        <div className="reveal client-preview product-client">
+          <ProjectExperience slug={p.slug} />
           <div className="client-proof">
             <span className="mono">DOCUMENTED PRODUCTION VERIFICATION</span>
             <p>Registration → persistence → spreadsheet → email.</p>
@@ -170,47 +128,71 @@ export function SideProjects() {
         }
       />
       <div className="experiment-grid">
-        <article className="experiment reveal">
-          <span className="mono">PRODUCT / AI CONCEPT</span>
-          <h3>
-            {p.name}
-            <Arrow />
-          </h3>
-          <p>{p.description}</p>
-          <Link href={`/projects/${p.slug}`} className="text-link">
-            Explore the idea <Arrow />
-          </Link>
-          <div className="wardrobe-stripe" aria-hidden="true">
-            <i />
-            <i />
-            <i />
-            <i />
-          </div>
-        </article>
-        <article className="experiment techsprint reveal">
-          <span className="mono">COMMUNITY / EVENT PLATFORM</span>
-          <h3>
-            TechSprint 2026
-            <Arrow />
-          </h3>
-          <p>
-            A responsive event platform, built and deployed with Node.js and Tailwind CSS.
-            Documented in my résumé.
-          </p>
-          <a
-            href="https://techsprint-six.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-link"
-          >
-            Visit event platform <Arrow />
-          </a>
-          <div className="sprint-lines" aria-hidden="true">
-            <i />
-            <i />
-            <i />
-          </div>
-        </article>
+        <div className="experiment-surface reveal product-exploration">
+          <article className="experiment">
+            <span className="mono">PRODUCT / AI CONCEPT</span>
+            <h3>
+              {p.name}
+              <Arrow />
+            </h3>
+            <p>{p.description}</p>
+            <ProjectExperience slug={p.slug} />
+            <Link href={`/projects/${p.slug}`} className="text-link">
+              Explore the idea <Arrow />
+            </Link>
+            <div className="wardrobe-stripe" aria-hidden="true">
+              <i />
+              <i />
+              <i />
+              <i />
+            </div>
+          </article>
+        </div>
+        <TactileSurface className="experiment-surface reveal">
+          <article className="experiment techsprint">
+            <a
+              className="event-preview side-visual"
+              href="https://techsprint-six.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit TechSprint 2026 event platform"
+              data-cursor="OPEN ↗"
+            >
+              <span aria-hidden="true">26</span>
+              <i aria-hidden="true" />
+              <i aria-hidden="true" />
+              <i aria-hidden="true" />
+              <small>TECHSPRINT / COMMUNITY</small>
+              <Arrow />
+            </a>
+            <span className="mono">COMMUNITY / EVENT PLATFORM</span>
+            <h3>
+              TechSprint 2026
+              <Arrow />
+            </h3>
+            <p>
+              A responsive event platform, built and deployed with Node.js and Tailwind CSS.
+              Documented in my résumé.
+            </p>
+            <div className="project-tags">
+              <span>Node.js</span>
+              <span>Tailwind CSS</span>
+            </div>
+            <a
+              href="https://techsprint-six.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-link"
+            >
+              Visit event platform <Arrow />
+            </a>
+            <div className="sprint-lines" aria-hidden="true">
+              <i />
+              <i />
+              <i />
+            </div>
+          </article>
+        </TactileSurface>
         <article className="next-project reveal">
           <span className="mono">NEXT PROJECT / IN DEVELOPMENT</span>
           <span className="next-symbol" aria-hidden="true">

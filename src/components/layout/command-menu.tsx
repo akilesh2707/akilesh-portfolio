@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { projects } from '@/data/projects';
 import { navigation, profile } from '@/data/profile';
 import { Arrow } from '@/components/ui/icon';
+import { SystemVisual } from '@/components/projects/system-visual';
 const sections = navigation.map((n) => ({
   title: n.label,
   description:
@@ -25,7 +26,7 @@ const index = [
     title: p.name,
     description: `${p.subtitle} · ${p.status}`,
     href: `/projects/${p.slug}`,
-    keywords: `${p.name} ${p.subtitle} ${p.description} ${p.stack.join(' ')} ${p.category}`,
+    keywords: `project projects ${p.name} ${p.subtitle} ${p.description} ${p.stack.join(' ')} ${p.category}`,
   })),
 ];
 export function CommandMenu() {
@@ -45,6 +46,9 @@ export function CommandMenu() {
         )
       : sections
   ).slice(0, 8);
+  const selectedProject = projects.find(
+    (project) => `/projects/${project.slug}` === results[selected]?.href,
+  );
   useEffect(() => {
     const open = () => {
       if (!dialog.current?.open) {
@@ -126,6 +130,22 @@ export function CommandMenu() {
           }}
         />
       </form>
+      {!query && (
+        <div className="command-suggestions" aria-label="Search suggestions">
+          {['projects', 'farmigle', 'skills', 'education'].map((term) => (
+            <button
+              key={term}
+              onClick={() => {
+                setQuery(term);
+                setSelected(0);
+                input.current?.focus();
+              }}
+            >
+              {term} <span>↗</span>
+            </button>
+          ))}
+        </div>
+      )}
       <div className="command-results" ref={resultsRef} aria-label="Search results">
         {results.length ? (
           results.map((item, i) => (
@@ -133,6 +153,8 @@ export function CommandMenu() {
               key={item.href}
               href={item.href}
               className={i === selected ? 'selected' : ''}
+              onFocus={() => setSelected(i)}
+              onPointerEnter={() => setSelected(i)}
               onClick={() => dialog.current?.close()}
             >
               <div>
@@ -146,6 +168,16 @@ export function CommandMenu() {
           <p className="no-results">No matching content. Try a project name, “AI” or “skills”.</p>
         )}
       </div>
+      {selectedProject && (
+        <div className="command-preview" key={selectedProject.slug}>
+          <SystemVisual project={selectedProject} compact />
+          <div>
+            <strong>{selectedProject.name}</strong>
+            <p>{selectedProject.description}</p>
+            <span className="mono">{selectedProject.status} · Illustrative preview</span>
+          </div>
+        </div>
+      )}
       <div className="command-footer">
         <span>
           <i className="status-dot" /> offline · keyword matched

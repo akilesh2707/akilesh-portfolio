@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getProject, projects } from '@/data/projects';
 import { SystemVisual } from '@/components/projects/system-visual';
+import { ProjectExperience } from '@/components/projects/experiences/project-experience';
 import { Arrow } from '@/components/ui/icon';
 import { Contact } from '@/components/contact/contact';
 export const dynamicParams = false;
@@ -58,9 +59,26 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             </a>
           )}
         </div>
-        <div className="case-visual reveal">
-          <SystemVisual project={p} />
-        </div>
+        {p.slug === 'queuezero' ? (
+          <section
+            className="case-visual queuezero-case-visual"
+            id="digital-twin"
+            aria-labelledby="digital-twin-title"
+          >
+            <div className="queuezero-showcase-intro">
+              <h2 id="digital-twin-title">Explore the Digital Twin.</h2>
+              <p>
+                See how people move through five connected hospital stages. Select a station, change
+                your view, or run the synthetic demo to watch queues build and flow onward.
+              </p>
+            </div>
+            <ProjectExperience slug={p.slug} mode="case-study" />
+          </section>
+        ) : (
+          <div className="case-visual reveal">
+            <SystemVisual project={p} />
+          </div>
+        )}
         <div className="case-content">
           <div className="case-sidebar">
             <span className="mono">INSIDE THE SYSTEM</span>
@@ -87,6 +105,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 <span className="mono">KEY ENGINEERING DECISION</span>
                 {p.decision}
               </blockquote>
+              {p.slug === 'queuezero' && (
+                <div className="queuezero-decision-loop">
+                  <h3>How the decision loop works.</h3>
+                  <SystemVisual project={p} />
+                </div>
+              )}
             </section>
             <section id="architecture" className="case-section reveal">
               <span className="section-label">03 / THE SYSTEM</span>
